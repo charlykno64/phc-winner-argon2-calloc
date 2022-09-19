@@ -102,7 +102,7 @@ int allocate_memory(const argon2_context *context, uint8_t **memory,
     if (context->allocate_cbk) {
         (context->allocate_cbk)(memory, memory_size);
     } else {
-        *memory = malloc(memory_size);
+        *memory = calloc(1, memory_size);
     }
 
     if (*memory == NULL) {
